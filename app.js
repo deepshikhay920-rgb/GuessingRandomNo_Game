@@ -1,20 +1,18 @@
-const max=prompt("Enter the max number");
-const random=Math.floor(Math.random()*max)+1;
-let guess=prompt("guess the number");
-while(true){
-    if(guess=="quit"){
-        console.log("quit");
-        break;
-    }
-    if(guess=="random"){
-        console.log("you are right! congrats!",random);
-        break;
-    }else if(guess<random){
-        guess=prompt("hint : your number is too small .please try again");
-    
-        
-    }
-    else{
-        guess=prompt("hint : your number is too large.please try again");
-    }
+let btn=document.querySelector("button");
+btn.addEventListener("click",function(){
+    console.log("generate randon color");
+    let h3=document.querySelector("h3");
+    let rndmclr=getRandomColor();
+    h3.innerText=rndmclr;
+    console.log("Color updated");
+    let div=document.querySelector("div");
+    div.style.backgroundColor=rndmclr;
+});
+function getRandomColor(){
+    let red=Math.floor(Math.random()*255);
+    let green=Math.floor(Math.random()*255);
+    let blue=Math.floor(Math.random()*255);
+    let clr=`rgb(${red},${green},${blue})`;
+    return clr;
+
 }
